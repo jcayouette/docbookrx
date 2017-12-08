@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="34bea539-28bb-44fb-ad7e-f7b59cd83d07" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/.directory" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/MAIN-manager.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_adding_a_vmware_esxi_host_manager.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_app_ay_example.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_cobbler.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_image_management.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_kubernetes_integration.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_monitoring_with_icinga.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_optimization_scalability.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_ports.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_proxy_quickstart.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_security.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_spacecmd_command_guide.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_suma3_zsystems.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/advanced_topics_virtualization.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/book_mgr_best_practices.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/book_mgr_getting_started.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/book_mgr_white_papers.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/book_suma_advanced_topics.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/book_suma_reference_manual.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_authentication_with_pam_and_ad.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_activation_key_management.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_bring_your_own_cert.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_channel_management.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_choosing_dist_scheme.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_config_management_with_salt.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_expanded_support.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_getting_started_with_salt_formulas.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_intro.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_org_wide_group_management.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_salt_minion_onboarding_scaleability.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_suma_backup.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_systems_management.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_chap_troubleshooting.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_client_migration.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_ex_autoinst_system-upgrade.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_live_patching.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_postgresql_database_migration.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_sec_mgr_21_migration.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_sp_migration.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/bp_susecom_lifecycle_management.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/common_copyright_gfdl.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/common_gfdl1.2_i.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/common_intro_available_doc_i.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/common_intro_feedback_i.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/common_intro_typografie_i.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/common_legal.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/copyright_susemanager_cc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/documentation.updates.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/entity-decl.ent" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/.directory" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/3tier.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/activation-key-setup.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/add-channel1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/add-channel2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/add-pin.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin-config-bootstrap.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_configuration_bare_metal_systems.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_configuration_bootstrap.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_configuration_cobbler.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_configuration_organization.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_configuration_restart.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_create_organizations.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_general_configuration.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_iss_configuration_edit_master.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_iss_configuration_edit_slave.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_iss_configuration_master.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_iss_configuration_slave.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_list_organizations.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_list_users.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_organization_configuration.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_organization_credentials.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_organization_details.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_organization_states.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_organization_trusts.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_organization_users.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_proxy_settings.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_show_tomcat_logs.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_suse_products.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_task_schedule_details.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_task_schedules.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_task_status_last_execution.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/admin_task_status_runtime.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/advanced_mode_create.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_cve_audit.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_openscap_advanced_search.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_openscap_difference.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_openscap_list_scans.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_openscap_schedule_scan.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_subscription_matching.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_subscription_matching_gatherer_matcher_default.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_subscription_matching_messages.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_subscription_matching_pins.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_subscription_matching_unmatched_products.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_visualization_proxy_hierarchy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_visualization_system_grouping.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/audit_visualization_virtualization_hierarchy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/base-child-channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/bootstrapping.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/chameleon_co.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_all_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_clone_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_create_distribution_channel_map.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_create_software_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_custom_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_details_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_details_managers_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_details_packages_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_details_patches_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_details_repositories.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_details_repositories_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_details_sync_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_distribution_channel_mapping.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_manage_create_repository.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_manage_list_repositories.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_manage_software__channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_packages_list_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_popular_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_retired_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_search_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_shared_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/channels_vendor_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/cobbler_snippet_create.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/cobbler_snippet_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/combine-keys.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/combine-keys2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/configuration.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/configuration_central_managed_config_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/configuration_central_managed_config_files.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/configuration_locally_managed_config_files.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/configuration_overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/configuration_systems_managed_systems.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/configuration_systems_target_systems.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/create_profile_wizard.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/create_state_catalog.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/crypto_key_create.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/crypto_keys_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/custom_snippet_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/default_snippet_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/details-ks-3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/details-ks-4.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/details-ks-5.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/details-ks-6.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/details-ks-7.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/details-ks-8.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/enable_live_patching_apply_highstate.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/enable_live_patching_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/enable_live_patching_kgraft_install.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/enable_live_patching_successful.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/example-workflow1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/example-workflow2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/example-workflow3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/exception-channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-bug.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-bug.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-check-circle.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-check-circle.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-clock-o.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-clock-o.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-cog.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-desktop.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-desktop.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-exclamation-circle.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-exclamation-circle.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-lock.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-lock.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-question-circle.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-question-circle.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-rocket.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-rocket.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-shield.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-shield.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-times-circle.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-times-circle.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-warning.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/fa-warning.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/help_index.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/help_search.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home-overview-legend.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_locale_preferences.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_overview_critical_systems_pane.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_overview_inactive_systems_pane.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_overview_latest_errata_pane.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_overview_pending_actions_pane.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_overview_recently_registered_pane.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_overview_system_groups_pane.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_overview_tasks_pane.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_user_account_account_deactivation.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_user_account_addresses.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_user_account_change_email.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_user_account_credentials.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_user_account_edit_address.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_user_account_personal_info.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_user_account_user_details.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_your_organization_configuration.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_your_organization_custom_states.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_your_organization_trusts.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/home_your_preferences.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/image-building.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/images_image_build.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/images_image_create_profile.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/images_image_profiles.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/images_image_stores.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/images_image_stores_create.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/images_list_images.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/imeages_image_stores_create.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/key-overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/kickstart_ip_ranges.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/kickstarts.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/landscape-key.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/leftnav.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/manager-extension.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/messages-submatch.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/mgr-addon1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/mgr-addon2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/mgr_configuration_bootstrap.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/minion1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/minion2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/minion3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/navbar-legend.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/onboarding.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/osad.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patch-channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patch-list-remove.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patch-promo.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patch-status-affected-patch-applicable.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patch-status-affected-patch-inapplicable.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patch-status-not-affected.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patch-status-patched.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_advanced_search_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_all_bug_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_all_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_all_security_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_clone_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_create_patch.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_published_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_relevant_bug__patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_relevant_enhancement_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_relevant_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_security_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/patches_unpublished_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/preservation_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/preservation_list_create.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/provision-config-keys.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/proxy-extension.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/proxy-key.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/proxy-migration.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/proxy-saltbootstrap.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quicksearch.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-activationkeys1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-activationkeys2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-activationkeys3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-bootstrap1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-bootstrap2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-mgr-setup-admin1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-mgr-setup-admin2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-mgr-setup1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-mgr-setup2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-mgr-setup3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-mgr-setup4.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-mgr-setup5.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-mgr-setup6.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-mgr-setup8.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/quickstart-webgui1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/remote-commands.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/remote_commands.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/rhnsd-taigon.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/rhnsd-taigon.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/rhnsd.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/salt-ssh-contact-taigon.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/salt-ssh-contact-taigon.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/salt-ssh-contact.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/salt-ssh-contact.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/salt1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/salt2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/schedule_action_chains.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/schedule_archived_actions.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/schedule_completed_actions.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/schedule_failed_actions.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/schedule_pending_actions.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/security-asap-exceptions.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/setup-wizard-product-sync.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/show-system-list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sidenav.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/singlemanager.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sles12-proxy-child.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sles_migrated.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sles_migration_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sles_migration_schedule.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sles_migration_target.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sles_old_details_page.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sles_old_details_spmigration.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sm-pins.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/smatching-overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-enhancement.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-enhancement.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-monitoring-down.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-monitoring-ok.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-monitoring-pending.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-monitoring-unknown.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-monitoring-warning.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-packages.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-sandbox.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-sandbox.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-software-channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spacewalk-icon-software-channels.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/spmigration-channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sshpush-taigon.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sshpush-taigon.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/sshpush.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/state_catalog.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/subtabs.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/suma3-module.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/suma_proxy_migrated.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/suma_proxy_migration_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/suma_proxy_migration_target.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/suma_proxy_old_details_page.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/suma_proxy_old_details_spmigration.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/susemanager_create_activation_key_proxy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/susemanager_firstboot_network.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/susemanager_firstboot_root_pwd.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_reactivation.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_add_group.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_custom_info.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_edit.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_events_history.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_events_pending.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_hardware.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_list_audit.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_list_groups.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_migrate.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_notes.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_remote_cmd.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_schedule_audit.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_software_install_packages.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_software_non_compliant_packages.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_software_package_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_software_packages.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_software_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_software_sp_migration.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_software_system_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_software_upgrade_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_states_custom.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_states_formulas.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_states_highstate.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_salt_states_packages.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_add_group.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_add_files_create.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_add_files_import.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_add_files_upload.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_config_channel_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_deploy_file.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_diff_file.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_rank_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_subscription_setup.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_view_mod_central_paths.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_view_mod_local_paths.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_configuration_view_mod_sandbox_paths.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_custom_info.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_edit.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_events_history.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_events_pending.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_hardware.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_list_audit.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_list_groups.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_migrate.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_notes.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_provisioning_power_management.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_provisioning_schedule_wizard.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_provisioning_snapshot_index.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_provisioning_snapshot_tags.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_remote_cmd.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_schedule_audit.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_software_create_profile.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_software_install_packages.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_software_non_compliant_packages.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_software_package_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_software_packages.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_software_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_software_profiles.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_software_sp_migration.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_software_system_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/system_details_traditional_software_upgrade_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_activation_key_child_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_activation_key_config_list_unsubscribe.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_activation_key_config_subscribe.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_activation_key_details.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_activation_key_join_group.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_activation_key_list_activated.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_activation_key_list_groups.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_activation_key_packages.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_activation_key_view_modify_ranks.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_activation_keys.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_advanced_search.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_all.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_bare_metal.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_create_activation_key.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_currency_report.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_custom_system_info.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_duplicate_systems.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_edit_group.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_inactive.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_kickstart_overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_noncompliant.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_outofdate.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_physical_systems.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_proxy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_proxy_heirarchy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_recently_registered.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_requiringreboot.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_software_crashes.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_audit.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_autoinstallation.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_base_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_child_subscriptions.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_completed_log.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_config_compare_files.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_config_deploy_files.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_config_enable_config.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_config_subscribe_to_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_config_unsubscribe_from_channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_groups.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_in_progress_log.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_install.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_list_systems.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_misc_delete_confirm.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_misc_hardware_refresh.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_misc_index.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_misc_lock_unlock.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_misc_migrate_systems.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_misc_reboot_system.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_misc_software_refresh.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_packages_overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_patches.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_power_management_config.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_power_management_operations.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_remote_command.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_remove.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_rollback.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_tag_systems.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_task_log.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_upgrade.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ssm_verify.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_stored_profiles.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_system_grouping.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_system_types.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_systemgroups.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_ungrouped.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_virtual_host_managers.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_virtual_host_managers_file.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_virtual_host_managers_vmware.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_virtual_systems.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_virtualization_heirarchy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_visualization_filter_example.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_visualization_partition_example.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_visualization_selections_example.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_visualization_virtualization_hierarchy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/systems_without_system_type.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/top_search.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/topnav.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/tree_create.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/unmatched-overview.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/updates-channels.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_all_users.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_create_user.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_deactivated_user_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_details_addresses.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_details_channel_permissions.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_details_preferences.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_details_system_groups.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_details_systems.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_system_group_config.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_system_group_config_create_external_group.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_system_group_config_external_auth.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_user_details.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/users_user_list.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/view_trees.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/visualization_system_grouping.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/visualization_system_grouping_all.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/png/yast_migration_target31.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-236-non-virtual-system.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-bug.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-check-circle.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-clock-o.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-desktop.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-exclamation-circle.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-lock.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-question-circle.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-rocket.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-shield.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-times-circle.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/fa-warning.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/rhnsd-taigon.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/salt-ssh-contact-taigon.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/salt-ssh-contact.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/spacewalk-icon-enhancement.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/spacewalk-icon-sandbox.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/spacewalk-icon-software-channels.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/spacewalk-icon-unprov-system.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/spacewalk-icon-virtual-guest.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/spacewalk-icon-virtual-host.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/src/svg/sshpush-taigon.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/manager_reference_appendix_docupdates.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/manager_reference_openscap.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/mgr_additional_resources.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/mgr_doc_updates.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/mgr_product_comparison.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/network-decl.ent" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/public-cloud-setup.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/quickstart3_chap_install_overview.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/quickstart3_chap_suma_installation_jeos.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/quickstart3_chap_suma_installation_sles12_sp1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/quickstart3_chap_suma_keys_and_first_client.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/quickstart3_chap_suma_salt_gs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/quickstart3_chap_suma_setup_with_yast.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/quickstart3_salt_gs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-intro.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-admin.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-audit.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-channels.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-configuration.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-help.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-images.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-intro.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-overview.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-patches.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-salt.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-schedule.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-systems-autoinstallation.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-systems.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/reference-webui-users.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/schemas.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/susemanager-decl.ent" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/white_papers_creating_custom_execution_modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/white_papers_salt_formulas_and_forms.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/white_papers_talking_to_a_raspberry_pi_with_sensehat.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/white_papers_writing_a_machinery_renderer.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/white_papers_writing_custom_grains.xml" />
+      <change beforePath="$PROJECT_DIR$/lib/docbookrx/docbook_visitor.rb" afterPath="$PROJECT_DIR$/lib/docbookrx/docbook_visitor.rb" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="docbookrx.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/docbookrx.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docbook_visitor.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/docbookrx/docbook_visitor.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="67">
+              <caret line="632" column="23" lean-forward="true" selection-start-line="632" selection-start-column="23" selection-end-line="632" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="quickstart3_chap_install_overview.adoc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/quickstart3_chap_install_overview.adoc">
+          <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="238">
+                <caret line="307" column="0" lean-forward="false" selection-start-line="307" selection-start-column="0" selection-end-line="307" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="quickstart3_chap_suma_installation_jeos.adoc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/quickstart3_chap_suma_installation_jeos.adoc">
+          <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="quickstart3_chap_suma_setup_with_yast.adoc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/quickstart3_chap_suma_setup_with_yast.adoc">
+          <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="144">
+                <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>visit_book</find>
+      <find>image</find>
+      <find>keycap</find>
+      <find>email</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/quickstart3_chap_suma_setup_with_yast.adoc" />
+        <option value="$PROJECT_DIR$/lib/docbookrx/docbook_visitor.rb" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2264" />
+    <option name="y" value="1426" />
+    <option name="width" value="1420" />
+    <option name="height" value="796" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="docbookrx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="docbookrx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="docbookrx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="docbookrx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/image/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/image/src/svg" />
+      <recent name="$PROJECT_DIR$/image/src/png" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="34bea539-28bb-44fb-ad7e-f7b59cd83d07" name="Default" comment="" />
+      <created>1512680479641</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1512680479641</updated>
+      <workItem from="1512680480850" duration="2171000" />
+      <workItem from="1512682665364" duration="5526000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="7697000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="2264" y="1426" width="1920" height="1053" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23023504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lib/docbookrx.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MAIN-manager.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/docbookrx/docbook_visitor.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2124">
+          <caret line="118" column="4" lean-forward="false" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bp_chap_bring_your_own_cert.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/advanced_topics_adding_a_vmware_esxi_host_manager.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/book_mgr_getting_started.adoc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bp_chap_bring_your_own_cert.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MAIN-manager.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/docbookrx.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/image/src/svg/fa-236-non-virtual-system.svg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quickstart3_chap_suma_installation_jeos.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quickstart3_chap_suma_setup_with_yast.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="144">
+            <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quickstart3_chap_install_overview.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="238">
+            <caret line="307" column="0" lean-forward="false" selection-start-line="307" selection-start-column="0" selection-end-line="307" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/docbookrx/docbook_visitor.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="632" column="23" lean-forward="true" selection-start-line="632" selection-start-column="23" selection-end-line="632" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

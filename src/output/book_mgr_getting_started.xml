@@ -1,0 +1,1553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Getting Started</title>
+<date>2017-12-07</date>
+</info>
+<preface>
+<title></title>
+<literallayout class="monospaced">Joseph
+Cayouette</literallayout>
+</preface>
+<chapter xml:id="_quickstart.chapt.overview.requirements">
+<title>What is Covered?</title>
+<simpara>Get started with  3 by setting up a KVM learning environment.
+This quick-start guide will provide you with introductory guidance on setting up server.
+You will learn the basics of managing both traditional clients and Salt clients.
+This guide is intended for system administrators.</simpara>
+<section xml:id="_quickstart.sect.introduction">
+<title>Introducing</title>
+<simpara>lets you efficiently manage large sets of Linux systems and keep them up to date.
+It provides automated and cost-effective software management, asset management, and system provisioning.
+provides a best in class solution for organizations requiring absolute control of maintenance and package deployment on their servers.
+It allows customers the highest level of flexibility and power ensuring their servers remain secure while facilitating and advancing an organizations system life-cycle requirements.</simpara>
+<formalpara>
+<title>Salt</title>
+<para>The inclusion of <emphasis><phrase role="path">Salt</phrase></emphasis>
+ in  3 provides powerful event-driven configuration and management capabilities for fine grained control of any modern infrastructure.</para>
+</formalpara>
+<formalpara>
+<title>Salt-master</title>
+<para>takes a commanding role as a Salt-master capable of orchestrating thousands of Salt-minions ( Clients) via remote execution.</para>
+</formalpara>
+<formalpara>
+<title>Distribution Management</title>
+<para>is also fully compatible with Red Hat Satellite Server and offers seamless management of both  and  client systems.</para>
+</formalpara>
+</section>
+<section xml:id="_quickstart.sect.bird.eye.view">
+<title>Overview</title>
+<simpara>may be integrated within your network infrastructure in multiple ways.
+In this guide you will perform the following steps for an initial test setup.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Install SLES12 and SUSE Manager as an extension</simpara>
+</listitem>
+<listitem>
+<simpara>Register SUSE Manager server with SCC (SUSE Customer Center)</simpara>
+</listitem>
+<listitem>
+<simpara>Synchronize a repository channel for use with both traditional clients and salt-minions</simpara>
+</listitem>
+<listitem>
+<simpara>Create an authentication key to act as an ID for the synced repository channel</simpara>
+</listitem>
+<listitem>
+<simpara>Add the new authentication key to a bootstrap template script and connect a traditional client</simpara>
+</listitem>
+<listitem>
+<simpara>Register a salt-minion with SUSE Manager (salt-master) and assign it a channel with an authentication key</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="_quickstart.sect.prerequisites.install">
+<title>Prerequisites for Installation</title>
+<simpara>This guide requires that you have created an account with SCC (). During installation of both  12 and  ,  credentials will be requested and you must enter them to receive the latest packages and updates.
+The following procedure will guide you through obtaining your SCC <emphasis><phrase role="path">Organizational Credentials</phrase></emphasis>
+.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure: Obtaining Your SCC Organization Credentials</title>
+<listitem>
+<simpara>Open a browser and direct it to <link xl:href="https://scc.suse.com/login">https://scc.suse.com/login</link>.</simpara>
+</listitem>
+<listitem>
+<simpara>If you have not done so, create an account now.</simpara>
+</listitem>
+<listitem>
+<simpara>Log in to your new SCC account.</simpara>
+</listitem>
+<listitem>
+<simpara>Under the <emphasis><phrase role="path">Management tools</phrase></emphasis> widget select <emphasis><phrase role="path">Manage Users</phrase></emphasis> .</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis><phrase role="path">Organization Credentials</phrase></emphasis> tab.</simpara>
+</listitem>
+<listitem>
+<simpara>Keep this information handy during  3 setup.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="_obtaining_installation_media">
+<title>Obtaining Installation Media</title>
+<simpara>After logging into your SCC account, you can find the installation images provided at the following addresses.
+Select one and continue reading:</simpara>
+<note>
+<title>Just Enough Operating System (JeOS) vs. Full Media Image</title>
+<simpara>The SLES 12 JeOS image provides the quickest route for setup of a test environment.
+The JeOS image total size is about 290 MB.
+The alternative would be the 3 GB  12 DVD image.
+Both installation media are appropriate, but depend upon available bandwidth or your application needs.
+Both methods of installation will be covered in this guide.</simpara>
+</note>
+<itemizedlist>
+<listitem>
+<simpara>Just Enough Operating System (JeOS) 290 MB <link xl:href="https://download.suse.com">https://download.suse.com</link> (and search for <literal>jeos</literal>) or <link xl:href="https://www.suse.com/products/server/jeos/">https://www.suse.com/products/server/jeos/</link></simpara>
+</listitem>
+<listitem>
+<simpara>SLES 12 DVD image 3 GB <link xl:href="https://www.suse.com/products/server/download/">https://www.suse.com/products/server/download/</link></simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="_quickstart.sect.software.requirements">
+<title>Hardware Requirements</title>
+<simpara>Review the following table for  hardware and software requirements.
+For installation on , see <xref linkend="_art.suma.install.zsystems"/>
+.</simpara>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Hardware</entry>
+<entry align="left" valign="top">Recommended</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>CPU</simpara></entry>
+<entry align="left" valign="top"><simpara>Multi-core 64-bit CPU (x86_64, ppc64le)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>RAM</simpara></entry>
+<entry align="left" valign="top"><simpara>Minimum 4GB+ for test server</simpara><simpara>Minimum 16GB+ for base installation</simpara><simpara>Minimum 32GB+ for a production server</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Free Disk Space</simpara></entry>
+<entry align="left" valign="top"><simpara>Minimum 100GB for root partition</simpara><simpara><emphasis>For the purposes of this guide the default JeOS root
+        partition size of 24 GB will be sufficient</emphasis></simpara><simpara>Minimum 50GB for <emphasis><phrase role="path">/var/lib/pgsql</phrase></emphasis></simpara><simpara>Minimum 50GB per SUSE product + 200 GB per Red Hat product <emphasis><phrase role="path">/var/spacewalk</phrase></emphasis></simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+<section xml:id="_base_host_os">
+<title>Base Host OS</title>
+<simpara>SUSE Manager is based on the following host OS.</simpara>
+<note>
+<title>Version Information</title>
+<simpara> 3.1 was originally released as a SLES 12 SP2 extension.
+With the next maintenance update (2017),  3.1 will be based on SLES 12 SP3 and it will support SLE 12 SP3 clients officially.
+In the following sections and chapters, it is highly recommended to use SLE 12 SP3 instead of SP2.</simpara>
+</note>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Base OS</entry>
+<entry align="left" valign="top">SUSE Manager Version</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>SLES 12 SP3</simpara></entry>
+<entry align="left" valign="top"><simpara>3.0, 3.1</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+<section xml:id="_mgr.supported.client.systems">
+<title>Supported Client Systems</title>
+<simpara>Clients with the following operating systems are supported for registration with . If you plan on using the new Salt features, ensure your clients are supported.</simpara>
+<note>
+<title>Supported Versions and SP Levels</title>
+<simpara>Client operating system versions and SP levels must be under general support (normal or LTSS) to be supported with .  For details, see <link xl:href="https://www.suse.com/lifecycle">https://www.suse.com/lifecycle</link>.</simpara>
+</note>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="4">
+<colspec colname="col_1" colwidth="25*"/>
+<colspec colname="col_2" colwidth="25*"/>
+<colspec colname="col_3" colwidth="25*"/>
+<colspec colname="col_4" colwidth="25*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Operating Systems</entry>
+<entry align="left" valign="top">Architecture</entry>
+<entry align="left" valign="top">Traditional Clients</entry>
+<entry align="left" valign="top">Salt Clients</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara> 11 SP4 LTSS</simpara></entry>
+<entry align="left" valign="top"><simpara>, _64, , IBM ,</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara> 12 SP1, SP2, SP3</simpara></entry>
+<entry align="left" valign="top"><simpara>_64, IBM  (),</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara> 5</simpara></entry>
+<entry align="left" valign="top"><simpara>, _64</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+<entry align="left" valign="top"><simpara>Unsupported</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara> 6</simpara></entry>
+<entry align="left" valign="top"><simpara>, _64</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara> 7</simpara></entry>
+<entry align="left" valign="top"><simpara>, _64</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Novell Open Enterprise Server 11, SP1, SP2, SP3 LTSS</simpara></entry>
+<entry align="left" valign="top"><simpara>, _64</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Open Enterprise Server 2015, 2015 SP1, 2018</simpara></entry>
+<entry align="left" valign="top"><simpara>, _64</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+<entry align="left" valign="top"><simpara>Supported</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+<section xml:id="_mgr.additional.requirements">
+<title>Additional Requirements</title>
+<simpara>To successfully complete this guide some network requirements must be met.
+The following section will walk you through these requirements.</simpara>
+<formalpara>
+<title>Fully Qualified Domain Name (FQDN):</title>
+<para>The  server must resolve its FQDN correctly or cookies will not work properly on the . For more information on FQDN, see:
+** <link xl:href="https://www.suse.com/documentation/sles-12/book_sle_admin/data/sec_basicnet_yast.html#sec_basicnet_yast_change_host">https://www.suse.com/documentation/sles-12/book_sle_admin/data/sec_basicnet_yast.html#sec_basicnet_yast_change_host</link></para>
+</formalpara>
+<formalpara>
+<title>Hostname and IP Address:</title>
+<para>To ensure that 's domain name can be resolved by its clients, both server and client machines must be connected to a working Domain Name System (DNS) server.
+This guide assumes the required infrastructure exists within your environment.
+For more information on setting up a (DNS) server, see:</para>
+</formalpara>
+<formalpara>
+<title>Using a Proxy When Installing from  Media</title>
+<para>If you are on an internal network and do not have access to , you can setup and use a proxy during a  installation.
+For more information on configuring a proxy for access to  during a  installation see:https://www.suse.com/documentation/sled-12/singlehtml/book_sle_deployment/book_sle_deployment.html#sec.i.yast2.start.parameters.proxy
+** <link xl:href="https://www.suse.com/documentation/sles-12/book_sle_admin/data/cha_dns.html">https://www.suse.com/documentation/sles-12/book_sle_admin/data/cha_dns.html</link></para>
+</formalpara>
+<important>
+<title>Naming Your Server</title>
+<simpara>The hostname of  must not contain uppercase letters as this may cause <emphasis><phrase role="path">jabberd</phrase></emphasis>
+ to fail.
+Choose the hostname of your server carefully.
+Although changing the server name is possible, it is a complex process and unsupported.</simpara>
+</important>
+<simpara>For a more complete overview on  requirements not covered in this guide, see <xref linkend="_mgr.conceptual.overview"/>
+.</simpara>
+</section>
+<section xml:id="_firewall_rules">
+<title>Firewall Rules</title>
+<simpara>In a production environment  server and its clients should always utilize firewall rules.
+The following table provides an overview of required ports for use by  3.1.</simpara>
+<simpara>Traditional client systems connect to  via port 443. In addition, enabling push actions from  to client systems, requires inbound connections on port 5222.
+If  will also push to a proxy, you must allow inbound connections on port 5269.</simpara>
+<table frame="all" rowsep="1" colsep="1">
+<title>Required Ports on  Server</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33.3333*"/>
+<colspec colname="col_2" colwidth="33.3333*"/>
+<colspec colname="col_3" colwidth="33.3334*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Port</entry>
+<entry align="left" valign="top">Direction</entry>
+<entry align="left" valign="top">Reason</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>67</simpara></entry>
+<entry align="left" valign="top"><simpara>Inbound</simpara></entry>
+<entry align="left" valign="top"><simpara>Required when configured as a DHCP server for systems requesting IP addresses.</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>69</simpara></entry>
+<entry align="left" valign="top"><simpara>Inbound</simpara></entry>
+<entry align="left" valign="top"><simpara>Used when configured as a PXE server and allows installation and re-installation of PXE-boot enabled systems.</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>80</simpara></entry>
+<entry align="left" valign="top"><simpara>Outbound</simpara></entry>
+<entry align="left" valign="top"><simpara>Used to contact .</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>443</simpara></entry>
+<entry align="left" valign="top"><simpara>Inbound</simpara></entry>
+<entry align="left" valign="top"><simpara>All , traditional client, and proxy server requests and uses this port for  inbound traffic.</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>4505</simpara></entry>
+<entry align="left" valign="top"><simpara>Inbound</simpara></entry>
+<entry align="left" valign="top"><simpara>Required by the Salt-master to accept communication requests via TCP from minions.</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>4506</simpara></entry>
+<entry align="left" valign="top"><simpara>Inbound</simpara></entry>
+<entry align="left" valign="top"><simpara>Required by the Salt-master to accept communication requests via TCP from minions.</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>5222</simpara></entry>
+<entry align="left" valign="top"><simpara>Inbound</simpara></entry>
+<entry align="left" valign="top"><simpara>When you wish to push actions to clients this port is required by the <emphasis><phrase role="path">osad</phrase></emphasis>
+ daemon running on the client systems.</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>5269</simpara></entry>
+<entry align="left" valign="top"><simpara>Inbound/Outbound</simpara></entry>
+<entry align="left" valign="top"><simpara>Needed if you push actions to or via a .</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"></entry>
+<entry align="left" valign="top"><simpara>Outbound</simpara></entry>
+<entry align="left" valign="top"><simpara>Squid HTTP proxy for outgoing connections.
+It could be any port you configure.</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<simpara>For more information, see <xref linkend="_advanced.topics.app.ports.server"/>
+.
+:leveloffset: 0</simpara>
+</section>
+</chapter>
+<chapter xml:id="_sles.installation.within.kvm.jeos">
+<title>JeOS Installation</title>
+<section xml:id="_quickstart.sect.kvm.settings">
+<title>Virtual Machine Manager (virt-manager) Settings</title>
+<note>
+<title>Version Information</title>
+<simpara> 3.1 was originally released as a SLES 12 SP2 extension.
+With the next maintenance update (2017),  3.1 will be based on SLES 12 SP3 and it will support SLE 12 SP3 clients officially.
+In the following sections and chapters, it is highly recommended to use SLE 12 SP3 instead of SP2.</simpara>
+</note>
+<simpara>This chapter provides the required (KVM) settings for installation of  Just Enough Operating System (JeOS) 12 as the base for  3.1.
+A kernel virtual machine (KVM) combined with Virtual Machine Manager (<literal>virt-manager</literal>) will be used as a sandbox for your first installation.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Virtualization Guide</simpara>
+</listitem>
+</orderedlist>
+<informalexample>
+<simpara>For more information on virtualization, see <link xl:href="https://www.suse.com/documentation/sles-12/singlehtml/book_virt/book_virt.html">https://www.suse.com/documentation/sles-12/singlehtml/book_virt/book_virt.html</link>.</simpara>
+</informalexample>
+<simpara>Enter the following settings when creating a new virtual machine using <literal>virt-manager</literal>.</simpara>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<thead>
+<row>
+<entry align="left" valign="top">KVM Settings</entry>
+<entry align="left" valign="top">Installation Method:</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Import Existing Disk Image</simpara></entry>
+<entry align="left" valign="top"><simpara>OS:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Linux</simpara></entry>
+<entry align="left" valign="top"><simpara>Version:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><literal>SLES12-SP3-JeOS-for-kvm-and-xen.x86_64-GM.qcow2</literal></simpara></entry>
+<entry align="left" valign="top"><simpara>Memory:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>4096 MB</simpara></entry>
+<entry align="left" valign="top"><simpara>CPU&#8217;s:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>2</simpara></entry>
+<entry align="left" valign="top"><simpara>Storage Format:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><literal>.qcow2</literal> 24 GB (Default) JeOS Root Partition</simpara></entry>
+<entry align="left" valign="top"><simpara>Virtual Disks:</simpara><simpara>VirtIO Disk 2</simpara><simpara>VirtIO Disk 3</simpara><simpara>VirtIO Disk 4</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara> </simpara><simpara>101 GB for <emphasis><phrase role="path">/var/spacewalk</phrase></emphasis></simpara><simpara>50 GB for <emphasis><phrase role="path">/var/lib/pgsql</phrase></emphasis></simpara><simpara>4 GB for swap</simpara></entry>
+<entry align="left" valign="top"><simpara>Name:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><literal>example-server</literal></simpara></entry>
+<entry align="left" valign="top"><simpara>Network</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+<tip>
+<title>Virtualization Guide</title>
+<simpara>For more information on virtualization, see <link xl:href="https://www.suse.com/documentation/sles-12/singlehtml/book_virt/book_virt.html">https://www.suse.com/documentation/sles-12/singlehtml/book_virt/book_virt.html</link>.</simpara>
+</tip>
+</section>
+<section xml:id="_jeos.kvm.settings">
+<title>JeOS KVM Settings</title>
+<simpara>Create 3 additional virtual disks required for the  storage partitions.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure: Creating the Required Partitions with KVM</title>
+<listitem>
+<simpara>Create a new virtual machine using the downloaded JeOS KVM image and select <guimenu>Import existing disk image</guimenu> .</simpara>
+</listitem>
+<listitem>
+<simpara>Configure RAM and number of CPU&#8217;s: At least 4 GB RAM and 2 CPUs.</simpara>
+</listitem>
+<listitem>
+<simpara>Name your KVM machine and select the <guimenu>Customize configuration before install</guimenu> check box.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the <guimenu>Add Hardware</guimenu> button and create three new virtual disks with the following specifications. These disks will be partitioned and mounted in <xref linkend="_proc.jeos.susemgr.prep"/> .</simpara>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33.3333*"/>
+<colspec colname="col_2" colwidth="33.3333*"/>
+<colspec colname="col_3" colwidth="33.3334*"/>
+<thead>
+<row>
+<entry align="left" valign="top">VirtIO Storage Disks</entry>
+<entry align="left" valign="top">Name</entry>
+<entry align="left" valign="top">Sizing</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>VirtIO Disk 2</simpara></entry>
+<entry align="left" valign="top"><simpara>spacewalk</simpara></entry>
+<entry align="left" valign="top"><simpara>101 GB</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>VirtIO Disk 3</simpara></entry>
+<entry align="left" valign="top"><simpara>pgsql</simpara></entry>
+<entry align="left" valign="top"><simpara>50 GB</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>VirtIO Disk 4</simpara></entry>
+<entry align="left" valign="top"><simpara>swap</simpara></entry>
+<entry align="left" valign="top"><simpara>4 GB</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</listitem>
+<listitem>
+<simpara>Click <guimenu>Begin Installation</guimenu> and your new VM will boot from the JeOS image.</simpara>
+</listitem>
+</orderedlist>
+<simpara>Proceed through the basic JeOS installation prompts until you reach the command line.</simpara>
+<tip>
+<title>Root Password</title>
+<simpara>During the basic installation prompts you are asked to enter the password.
+Select a strong password and then in the next message box <guimenu>Confirm root Password</guimenu>
+.</simpara>
+</tip>
+</section>
+<section xml:id="_jeos.susemgr.prep">
+<title>Preparing JeOS for</title>
+<formalpara>
+<title>Procedure: Preparing JeOS for  Installation.. Register with SCC:</title>
+<para>+</para>
+</formalpara>
+<screen>SUSEConnect -e EMAIL_ADDRESS -r SUSE_MANAGER_CODE</screen>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Add  repositories:</simpara>
+<screen>SUSEConnect -p SUSE-Manager-Server/3.1/x86_64 -r SUSE_MANAGER_CODE</screen>
+</listitem>
+<listitem>
+<simpara>Install <phrase role="package">yast2-storage</phrase> with all required dependencies (approx. 40 packages, 30 MB when installed).  This basic administration package is required for preparing storage partitions:</simpara>
+<screen>zypper in -t package yast2-storage</screen>
+</listitem>
+<listitem>
+<simpara>Partition and mount the virtual disks at the following locations using Partitioner (<literal>yast2 disk</literal>).</simpara>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="4">
+<colspec colname="col_1" colwidth="25*"/>
+<colspec colname="col_2" colwidth="25*"/>
+<colspec colname="col_3" colwidth="25*"/>
+<colspec colname="col_4" colwidth="25*"/>
+<thead>
+<row>
+<entry align="left" valign="top">VirtIO Storage Disks</entry>
+<entry align="left" valign="top">Name</entry>
+<entry align="left" valign="top">Storage Size</entry>
+<entry align="left" valign="top">File System Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>VirtIO Disk 2</simpara></entry>
+<entry align="left" valign="top"><simpara><emphasis><phrase role="path">/var/spacewalk</phrase></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>101 GB</simpara></entry>
+<entry align="left" valign="top"><simpara>XFS</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>VirtIO Disk 3</simpara></entry>
+<entry align="left" valign="top"><simpara><emphasis><phrase role="path">/var/lib/pgsql</phrase></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>50 GB</simpara></entry>
+<entry align="left" valign="top"><simpara>XFS</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>VirtIO Disk 4</simpara></entry>
+<entry align="left" valign="top"><simpara><emphasis><phrase role="path">/swap</phrase></emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>4 GB</simpara></entry>
+<entry align="left" valign="top"><simpara>swap</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</listitem>
+<listitem>
+<simpara>SLES 12 by default uses the BTRFS file system. A mount point is created automatically for <emphasis><phrase role="path">/var/lib/pgsql/</phrase></emphasis> (even when not installed). This must be removed or commented out from the <emphasis><phrase role="path">/etc/fstab</phrase></emphasis> entries. As  edit <emphasis><phrase role="path">/etc/fstab</phrase></emphasis> and comment out or remove the line:</simpara>
+</listitem>
+</orderedlist>
+<screen>/var/lib/pgsql btrfs subvol=@/var/lib/pgsql 0 0</screen>
+<simpara>+</simpara>
+<warning>
+<title>Removing the <literal>pgsql</literal> in the[path]_/etc/fstab_Entry</title>
+<simpara>If you do not remove this line from fstab the first time you shutdown the server you will lose your database.
+This occurs because you will have duplicate entries in the fstab.</simpara>
+</warning>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Exit the partitioner and install the  pattern:</simpara>
+<screen>zypper in -t pattern suma_server</screen>
+</listitem>
+</orderedlist>
+<simpara>For executing  setup: proceed to <xref linkend="_suma.setup.with.yast.sumasetup"/>
+.
+:leveloffset: 0</simpara>
+</section>
+</chapter>
+<chapter xml:id="_quickstart3.chap.suma.installation.sles12">
+<title>SLES 12 Installation</title>
+<note>
+<title>Version Information</title>
+<simpara> 3.1 was originally released as a SLES 12 SP2 extension.
+With the next maintenance update (2017),  3.1 will be based on SLES 12 SP3 and it will support SLE 12 SP3 clients officially.
+In the following sections and chapters, it is highly recommended to use SLE 12 SP3 instead of SP2.</simpara>
+</note>
+<section xml:id="_sles_12_kvm_requirements">
+<title>SLES 12 KVM Requirements</title>
+<simpara>This chapter provides the required (kvm) settings for installation of 12 media as the base for the  3.1.
+A kernel virtual machine (kvm) combined with Virtual Machine Manager (<literal>virt-manager</literal>) will be used as a sandbox for this installation.</simpara>
+<simpara>Enter the following settings when creating a new virtual machine using <literal>virt-manager</literal>.</simpara>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<thead>
+<row>
+<entry align="left" valign="top">KVM Settings for SLES 12</entry>
+<entry align="left" valign="top">Installation Method:</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Local install media (ISO image or CDROM)</simpara></entry>
+<entry align="left" valign="top"><simpara>OS:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Linux</simpara></entry>
+<entry align="left" valign="top"><simpara>Version:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><literal>SLE-12-SP2-Server-x86_64-GM-DVD1.iso</literal></simpara></entry>
+<entry align="left" valign="top"><simpara>Memory:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>4096 MB</simpara></entry>
+<entry align="left" valign="top"><simpara>CPUs:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>2</simpara></entry>
+<entry align="left" valign="top"><simpara>Storage Format:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>ISO 3 GB</simpara></entry>
+<entry align="left" valign="top"><simpara>Additional Disks:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>230 GB split between 4 GB swap and 130 GB mounted at <emphasis><phrase role="path">/var/spacewalk/</phrase></emphasis>
+ (Virtual Disk 1) and 50 GB mounted at <emphasis><phrase role="path">/var/lib/pgsql</phrase></emphasis>
+ (Virtual Disk 2)</simpara></entry>
+<entry align="left" valign="top"><simpara>Name:</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><literal>example-server</literal></simpara></entry>
+<entry align="left" valign="top"><simpara>Network</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+<section xml:id="_sles.installation.within.kvm.media">
+<title>SLES 12 KVM Settings</title>
+<simpara>This section provides guidance on installation of  utilizing the full installation media with KVM and <literal>virt-manager</literal>.
+This section assumes you have previously setup an account with SCC and downloaded the SLES 12 full installation media.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure: Preparing for SLES 12 Installation</title>
+<listitem>
+<simpara>In <literal>virt-manager</literal> select <menuchoice><guimenu>File</guimenu> <guimenuitem>] then menu:New Virtual Machine[</guimenuitem></menuchoice> .</simpara>
+</listitem>
+<listitem>
+<simpara>Choose <guimenu>Local install media (ISO image or CDROM).</guimenu></simpara>
+</listitem>
+<listitem>
+<simpara>Ensure <menuchoice><guimenu>Use ISO Image</guimenu> <guimenuitem>] is selected then click menu:Browse[</guimenuitem></menuchoice> and locate the full SLES 12 image you downloaded from your SCC account.</simpara>
+</listitem>
+<listitem>
+<simpara>Configure your machine with at least 4096 MB RAM and a minimum of 2 CPUs.</simpara>
+</listitem>
+<listitem>
+<simpara>Create a storage device with a minimum of 230 GB storage space for the installation. During the partitioning setup of the SLES 12 installation this disk should be partitioned into a 4 GB <literal>swap</literal> a 130 GB partition (or a dedicated virtual disk) for <emphasis><phrase role="path">/var/spacewalk/</phrase></emphasis> (XFS) and an additional 50 GB partition (or a dedicated virtual disk) for <emphasis><phrase role="path">/var/lib/pgsql/</phrase></emphasis> (XFS). The remaining storage space will be used by the operating system. Select <guimenu>Finish</guimenu> to begin the installation.</simpara>
+</listitem>
+</orderedlist>
+<simpara>Installation of  12 will begin.
+For more information on completing an installation of  12, see <link xl:href="https://www.suse.com/documentation/sles-12/book_quickstarts/data/sec_sle_installquick.html">https://www.suse.com/documentation/sles-12/book_quickstarts/data/sec_sle_installquick.html</link>.</simpara>
+</section>
+<section xml:id="_quickstart3.sec.suma.installation.sles12.sp1.sumaext">
+<title>Selecting the  3.1 Extension</title>
+<simpara>During the  12 installation you will be presented with the <guimenu>Extension and Module Selection</guimenu>
+ (see <xref linkend="_fig.suma.installation.sles12.sumaext"/>
+).  Select the 3.1 Extension and then complete the  12 installation.</simpara>
+<figure>
+<title>Selecting  Extension</title>
+<mediaobject>
+<imageobject>
+<imagedata fileref="manager-extension.png"/>
+</imageobject>
+<textobject><phrase>manager extension</phrase></textobject>
+</mediaobject>
+</figure>
+</section>
+</chapter>
+<chapter xml:id="_suma.setup.with.yast">
+<title>SUSE Manager Setup</title>
+<section xml:id="_suma.setup.with.yast.setup">
+<title>Included Topics</title>
+<simpara>This section covers setup procedures of  3.1.
+You will perform the following procedures:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Initiate  3.1 setup from the command line</simpara>
+</listitem>
+<listitem>
+<simpara>Create the <emphasis><phrase role="path">admin</phrase></emphasis> user with the</simpara>
+</listitem>
+<listitem>
+<simpara>Synchronize with  (SCC) to obtain a list of product channels available for your clients.</simpara>
+</listitem>
+<listitem>
+<simpara>Add the  12 SP2 channel</simpara>
+</listitem>
+</itemizedlist>
+<note>
+<title>Version Information</title>
+<simpara> 3.1 was originally released as a SLES 12 SP2 extension.
+With the next maintenance update (2017),  3.1 will be based on SLES 12 SP3 and it will support SLE 12 SP3 clients officially.
+In the following sections and chapters, it is highly recommended to use SLE 12 SP3 instead of SP2.</simpara>
+</note>
+</section>
+<section xml:id="_suma.setup.with.yast.sumasetup">
+<title>Setup via GUI</title>
+<formalpara>
+<title>Procedure: Setup</title>
+<para>This section will guide you through  setup procedures. . Log in to the  12 desktop and start the   Setup module: Either click <menuchoice><guimenu>Applications</guimenu> <guisubmenu>System Tools</guisubmenu> <guimenuitem>YaST</guimenuitem></menuchoice> and enter menu: Setup[] , or open a terminal and as type <literal>yast2 susemanager_setup</literal> to initiate the setup.
+. On the initial screen select <menuchoice><guimenu>Setup SUSE Manager from scratch</guimenu> <guimenuitem>] and select menu:Next[</guimenuitem></menuchoice> to continue.
+. Enter an email address which will receive notifications about the server&#8217;s status. The number of emails sent from  can be extensive, therefore notifications via email may be disabled from the  after setup if desired. If wanted, enable advertising  via SLP; this can simplify client setup.</para>
+</formalpara>
+<simpara>+
+Select <menuchoice><guimenu>Next</guimenu> <guimenuitem>]
+to continue.
+. Enter your certificate information and a password. The password should be stored in a secure location. <emphasis>Without this password it will not be possible to setup a  Proxy Server.</emphasis> Select menu:Next[</guimenuitem></menuchoice> to continue.</simpara>
+<simpara>+</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="quickstart-mgr-setup4.png"/>
+</imageobject>
+<textobject><phrase>quickstart mgr setup4</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>In <menuchoice><guimenu>Database Settings</guimenu> <guisubmenu>]</guisubmenu> <guimenuitem>enter a database user and password. This password should be stored in a secure location. Select menu:Next[</guimenuitem></menuchoice> to continue.</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="quickstart-mgr-setup5.png"/>
+</imageobject>
+<textobject><phrase>quickstart mgr setup5</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>requires that you connect to  for software, updates and patches. You will be unable to synchronize or provide channels to your clients without this information. Enter your  <emphasis><phrase role="path">Organization Credentials</phrase></emphasis> . You may open <link xl:href="https://scc.suse.com/login">https://scc.suse.com/login</link> to register or access to your organization credentials. Select <emphasis><phrase role="path">Next</phrase></emphasis> to continue.</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="quickstart-mgr-setup6.png"/>
+</imageobject>
+<textobject><phrase>quickstart mgr setup6</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Select <guimenu>Yes</guimenu> to run setup when prompted. When completed select <emphasis><phrase role="path">Next</phrase></emphasis> to continue.</simpara>
+<simpara>You will be presented with your new   address.</simpara>
+<simpara>Select <guimenu>Finish</guimenu>
+to complete  setup.</simpara>
+</listitem>
+</orderedlist>
+<simpara>In <xref linkend="_suma.setup.with.yast.admin"/>
+, you will create the administrator&#8217;s account and synchronize with .</simpara>
+</section>
+<section xml:id="_suma.setup.with.yast.admin">
+<title>Creating the Organization with the Administrator&#8217;s Account</title>
+<simpara>This section will walk you through creating the organization with the administrator&#8217;s account for your  Server.
+The administrator&#8217;s account is the highest authority account within  and therefore administrator account access information should be stored in a secure location.
+It is recommended that an administrator creates low level user accounts designated for administration of each organization or group under the administrator&#8217;s account for security.</simpara>
+<formalpara>
+<title>Procedure: Setting up the Administrator&#8217;s Account.. To begin open your browser and direct it to your  Server URL which was provided to you after completing setup.</title>
+<para>+
+Enter the <menuchoice><guimenu>Organization Name</guimenu> <guisubmenu>]</guisubmenu> <guimenuitem>then your menu:Desired
+Login[</guimenuitem></menuchoice>
+name and <menuchoice><guimenu>Desired Password</guimenu> <guimenuitem>]
+.
+Fill in the Account Information fields including an email for system notifications.
+Select menu:Create
+Organization[</guimenuitem></menuchoice>
+to finish creating your administration account.</para>
+</formalpara>
+<simpara>+</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="quickstart-mgr-setup-admin1.png"/>
+</imageobject>
+<textobject><phrase>quickstart mgr setup admin1</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Congratulations! You should now be presented with the  Front Page. <xref linkend="_quickstart.first.channel.sync"/>
+ will help prepare the server for connecting your first client.</simpara>
+</section>
+<section xml:id="_quickstart.first.channel.sync">
+<title>Synchronizing with  (SCC)</title>
+<simpara>(SCC) maintains a collection of repositories which contain packages, software and updates for all supported client systems.
+These repositories are organized into channels each of which provide software specific to a distribution, release and architecture.
+You must synchronize your  Server with SCC to add channels for your client systems.
+After synchronizing with SCC your clients are able to receive updates or be organized into groups to be assigned to a specific software channel.
+This section covers synchronizing with SCC from the  and adding your first client channels.</simpara>
+<orderedlist numeration="lowerroman">
+<title>Procedure: Synchronizing with &#8230;&#8203; From the   start page select <menuchoice><guimenu>Admin</guimenu> <guimenuitem>Setup Wizard</guimenuitem></menuchoice> .</title>
+<listitem>
+<simpara>From the <menuchoice><guimenu>Setup Wizard</guimenu> <guimenuitem>] page select the menu: Products[</guimenuitem></menuchoice> tab. Wait a moment for the <guimenu>Available Products Below</guimenu> list to populate. You are present with a list of repositories provided from SCC. Each of these repositories represents a single software source known as a <emphasis><phrase role="path">Base Channel</phrase></emphasis> within . You can also see the architecture, channels, and status information from this page.</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="admin_suse_products.png"/>
+</imageobject>
+<textobject><phrase>admin suse products</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<orderedlist numeration="lowerroman">
+<listitem>
+<simpara>As you are adding a  12 SP2 client based on the <emphasis><phrase role="path">x86_64</phrase></emphasis> architecture, scroll down the page and select the check box for this channel now.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Add single channels to  by selecting the check box to the left the menu:+[] button of each channel.</simpara>
+</listitem>
+<listitem>
+<simpara>Add multiple channels by selecting the check boxes to the left of the channels list and then schedule synchronization by clicking the <literal>\+ Add products</literal> button located at the bottom of the page.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</orderedlist>
+<simpara>After adding your first channel  will schedule the channel to be copied and begin mirroring it.
+This can take a long time as  must copy all software sources from the Vendor repositories located at  to your servers local <literal role="replaceable">/var/spacewalk/</literal> directory.</simpara>
+<tip>
+<title>PostgreSQL and Transparant Huge Pages</title>
+<simpara>In some environments, Transparent Huge Pages provided by the kernel may slow down PostgreSQL workloads significantly.</simpara>
+<simpara>To disable transparant huge pages set the <literal>transparent_hugepage</literal> kernel parameter to <literal>never</literal>.
+This has to be changed in <emphasis><phrase role="path">/etc/default/grub</phrase></emphasis>
+ and added to the line <literal>GRUB_CMDLINE_LINUX_DEFAULT</literal>, for example:</simpara>
+<screen>GRUB_CMDLINE_LINUX_DEFAULT="resume=/dev/sda1 splash=silent quiet showopts elevator=noop transparent_hugepage=never"</screen>
+<simpara>To write the new configuration run <literal>grub2-mkconfig -o
+     /boot/grub2/grub.cfg</literal>.
+To update the grub2 during boot run <literal>grub2-install
+     /dev/sda</literal>.</simpara>
+</tip>
+<simpara>Monitor channel synchronization process in real-time by viewing channel log files located in the following directory:</simpara>
+<screen>example-server:/var/log/rhn/reposync/# tail -f Channel_Name.log</screen>
+<simpara>After your channel sync has completed proceed to <xref linkend="_preparing.and.registering.clients"/>
+.
+:leveloffset: 0</simpara>
+</section>
+</chapter>
+<chapter xml:id="_preparing.and.registering.clients">
+<title>Registering Clients</title>
+<section xml:id="_introduction">
+<title>Introduction</title>
+<simpara>All releases previous to and including  2.1 were implemented and shipped with a client management framework, which today is still fully supported.
+Since version 3,  includes a complete Salt solution in addition to the "`traditional`"traditional
+ framework.
+Salt is an end-to-end data-center automation tool which may also be used outside the scope of to introduce reactive, real-time orchestration, and configuration management.
+Managed systems may coexist using both methods, allowing you to become comfortable using Salt while keeping existing deployments intact.</simpara>
+</section>
+<section xml:id="_create.act.keys">
+<title>Creating Your Keys</title>
+<simpara>The following procedure will guide you through creating the activation keys for your test channels.
+Activation keys can be used for both Salt and traditional clients.</simpara>
+<simpara>Activation keys define the number of software entitlements, channels, and groups a client system is allowed to subscribe to.
+This information is passed on to all systems registered with a key.
+Each activation key is bound to the organization for which it has been created.
+Activation keys may be used with traditional clients or with Salt clients.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure: Creating Activation Keys</title>
+<listitem>
+<simpara>Log in to the   as administrator.</simpara>
+</listitem>
+<listitem>
+<simpara>Switch to <menuchoice><guimenu>Systems</guimenu> <guimenuitem>Activation Keys</guimenuitem></menuchoice> .</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <guimenu>Create Key</guimenu> link at the upper right corner.</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="systems_create_activation_key.png"/>
+</imageobject>
+<textobject><phrase>systems create activation key</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Enter a <guimenu>Description</guimenu> to identify the generated activation key.</simpara>
+</listitem>
+<listitem>
+<simpara>Enter a human readable <guimenu>Key</guimenu> string value such as <literal>SLES12-SP3</literal> to represent the distribution and service pack associated with the key.</simpara>
+<warning>
+<title>Allowed Characters</title>
+<simpara>For all  Products do not use commas within the key string.
+Red Hat Products require commas.
+For more information, see <xref linkend="_ref.webui.systems.activ_keys"/>
+.</simpara>
+</warning>
+</listitem>
+<listitem>
+<simpara>Enter <literal>1</literal> in the <guimenu>Usage</guimenu> field. This allows one client to register using this key and uses one of your subscription entitlements.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the  12 SP3 channel you added earlier from the <guimenu>Base Channels</guimenu> drop down.</simpara>
+</listitem>
+<listitem>
+<simpara>Leave the <guimenu>Contact Method</guimenu> at default.</simpara>
+</listitem>
+<listitem>
+<simpara>Leave <menuchoice><guimenu>Universal Default</guimenu> <guimenuitem>] unchecked. Click menu:Create Activation Key[</guimenuitem></menuchoice> to finish creating the key for the first channel.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="_create.tools.repository">
+<title>Creating the  Tools Repository</title>
+<simpara>In this section you will create a tools repository on the  Server for providing client tools.
+The client tools repository contains packages for installing Salt on minions as well as the required packages for registering traditional clients during the bootstrapping procedure.
+These packages will be installed from the newly generated repository during the registration process.
+In the following procedure you will create the  12 SP3 tools repository.</simpara>
+<important>
+<title>Creating a Tools Repository when an SCC Channel has not been Synced</title>
+<simpara>Before following the procedure to create the tools repository make sure the vendor channel you will be using with your client has been completely synced.
+You can check this by running <literal>tail -f
+    /var/log/rhn/reposync/<literal role="replaceable">CHANNEL_NAME</literal>.log</literal> as . For example:</simpara>
+<screen># tail -f /var/log/rhn/reposync/sles12-sp3-pool-x86_64.log</screen>
+</important>
+<formalpara>
+<title>Procedure: Generating the Tools Repository for  12 SP3.. Open a terminal on the server as  and enter the following command to list available bootstrap repositories:</title>
+<para>+</para>
+</formalpara>
+<screen># mgr-create-bootstrap-repo -l
+SLE-12-SP3-x86_64</screen>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Then invoke the same command using the listed repository as the product label to actually create the bootstrap repository:</simpara>
+<screen># mgr-create-bootstrap-repo -c SLE-12-SP3-x86_64</screen>
+</listitem>
+<listitem>
+<simpara>will create and add the client tools to the newly created <literal role="replaceable">repositories</literal> directory located at <emphasis><phrase role="path">/srv/www/htdocs/pub/repositories/</phrase></emphasis> .</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="_registering.clients.traditional">
+<title>Registering "`Traditional`"TraditionalClients</title>
+<section xml:id="_generate.bootstrap.script">
+<title>Generating a Bootstrap Script</title>
+<simpara>This section goes over generating a template bootstrap script which will be copied and modified for use with "`traditional`"traditional
+ clients.</simpara>
+<simpara>Traditional clients register with  via a bootstrap script executed on the client which deploys all necessary packages to it.
+The bootstrap script contains parameters which assigns a client system to its base channel.
+Two of these important parameters are:
+<emphasis role="strong">* Activation Keys
+</emphasis>* GNU Privacy Guard (GPG) Keys</simpara>
+<note>
+<title>Using <literal role="option">--traditional</literal></title>
+<simpara>As of  3.1 the <literal role="option">--traditional</literal> option must be used if creating a bootstrap script from the command line via the <literal>mgr-create-bootstrap</literal> command for traditional clients.
+Bootstrap scripts are now by default used for Salt minions.</simpara>
+</note>
+<note>
+<title>Bootstrap Scripting Best Practices</title>
+<simpara>It is possible to use various methods to register clients for use with in mass using bootstrap.
+Using batch scripts for mass registration of both VM and Bare Metal machines is a possibility.
+Some of these methods will be covered in the <emphasis><phrase role="ref">Best Practices
+     Guide</phrase></emphasis>
+ and will be added as examples at a later time.</simpara>
+</note>
+<simpara>The following procedure will guide you through generating a bootstrap template script.</simpara>
+<orderedlist numeration="lowerroman">
+<title>Procedure: Creating a Bootstrap Script&#8230;&#8203; On the  , switch to <menuchoice><guimenu>Admin</guimenu> <guisubmenu>SUSE Manager Configuration</guisubmenu> <guimenuitem>Bootstrap Script</guimenuitem></menuchoice> . For more information, see <xref linkend="_s3_sattools_config_bootstrap"/> .</title>
+<listitem>
+<simpara>Uncheck <menuchoice><guimenu>Bootstrap using Salt</guimenu> <guimenuitem>] . Otherwise leave the default settings and click the menu:Update[</guimenuitem></menuchoice> button.</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="mgr_configuration_bootstrap.png"/>
+</imageobject>
+<textobject><phrase>mgr configuration bootstrap</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>+</simpara>
+<warning>
+<title>Using SSL</title>
+<simpara>Unchecking <guimenu>Enable SSL</guimenu>
+ in the  or setting <literal>USING_SSL</literal> to <literal>0</literal> in the bootstrap script is not recommended.
+If you disable SSL nevertheless you must manage CA certificates yourself to be able to run the registration process successfully.</simpara>
+</warning>
+<orderedlist numeration="lowerroman">
+<listitem>
+<simpara>A template bootstrap script is generated and stored on the server&#8217;s file system in the <emphasis><phrase role="path">/srv/www/htdocs/pub/bootstrap</phrase></emphasis> directory.</simpara>
+<screen># cd /srv/www/htdocs/pub/bootstrap
+# ls
+bootstrap.sh                  client_config_update.py
+client-config-overrides.txt   sm-client-tools.rpm</screen>
+<simpara>The bootstrap script is also available at <emphasis><phrase role="path"><link xl:href="https://example.com/pub/bootstrap/bootstrap.sh">https://example.com/pub/bootstrap/bootstrap.sh</link></phrase></emphasis>
+.</simpara>
+</listitem>
+</orderedlist>
+<simpara><xref linkend="_modify.bootstrap.script"/>
+ will cover copying and modifying your bootstrap template for use with each client.</simpara>
+</section>
+<section xml:id="_modify.bootstrap.script">
+<title>Modifying the Bootstrap Script</title>
+<simpara>In this section you will copy and modify the template bootstrap script you created from <xref linkend="_generate.bootstrap.script"/>
+. <emphasis role="marked">#this section should go towards the end during modification</emphasis></simpara>
+<simpara>The minimal requirement when modifying a bootstrap script for use with is inclusion of an activation key.
+Depending on your organizations security requirements it is strongly recommended to include one or more (GPG) keys (for example, your organization key, and package signing keys). For the purposes of this guide you will be registering with the activation keys created in the previous section.</simpara>
+<orderedlist numeration="upperalpha">
+<title>Procedure: Modifying the Bootstrap Script&#8230;&#8203;. Log in as  on the command line on your  server.</title>
+<listitem>
+<simpara>Navigate to the bootstrap directory with:</simpara>
+<screen># cd /srv/www/htdocs/pub/bootstrap/</screen>
+</listitem>
+<listitem>
+<simpara>Create and rename two copies of the template bootstrap script for use with each of your clients.</simpara>
+<screen># cp bootstrap.sh bootstrap-sles11-sp4.sh
+# cp bootstrap.sh bootstrap-sles12-sp3.sh</screen>
+</listitem>
+<listitem>
+<simpara>Open <emphasis><phrase role="path">sles12-sp3.sh</phrase></emphasis> for modification. Scroll down and modify both lines marked in green. You must comment out <literal>exit 1</literal> with a hash mark (<literal>\#</literal>) to activate the script and then enter the name of the key for this script in the <literal>ACTIVATION_KEYS=</literal> field as follows:</simpara>
+<screen>echo "Enable this script: comment (with #'s) this block (or, at least just"
+echo "the exit below)"
+echo
+#exit 1
+
+# can be edited, but probably correct (unless created during initial install):
+# NOTE: ACTIVATION_KEYS *must* be used to bootstrap a client machine.
+ACTIVATION_KEYS=1-sles12-sp3
+ORG_GPG_KEY=</screen>
+</listitem>
+<listitem>
+<simpara>When you have finished your modifications save the file and repeat this procedure for the second bootstrap script. Then proceed to <xref linkend="_connect.first.client"/> .</simpara>
+</listitem>
+</orderedlist>
+<note>
+<title>Finding Your Keys</title>
+<simpara>To find key names you have created: In the , click <menuchoice><guimenu>Home</guimenu> <guisubmenu>Overview</guisubmenu> <guisubmenu>Manage
+     Activation keys</guisubmenu> <guimenuitem>Key Field</guimenuitem></menuchoice>
+.
+All keys created for channels are listed here.
+You must enter the full name of the key you wish to use in the bootstrap script exactly as presented in the key field.</simpara>
+</note>
+</section>
+<section xml:id="_connect.first.client">
+<title>Connecting Your First Client</title>
+<simpara>This section covers connecting your clients to  with the modified bootstrap script.</simpara>
+<formalpara>
+<title>Procedure: Running the Bootstrap Script&#8230;&#8203;.. On your  Server as  navigate to the following directory:</title>
+<para>+</para>
+</formalpara>
+<screen># cd /srv/www/htdocs/pub/bootstrap/</screen>
+<orderedlist numeration="upperroman">
+<listitem>
+<simpara>Run the following command to execute the bootstrap script on the client:</simpara>
+<screen># cat MODIFIED-SCRIPT.SH \
+  | ssh root@example.com /bin/bash</screen>
+</listitem>
+<listitem>
+<simpara>The script will execute and proceed to download the required dependencies located in the repositories directory you created earlier. Once the script has finished running, log in to the  and click <menuchoice><guimenu>Systems</guimenu> <guimenuitem>Overview</guimenuitem></menuchoice> to see your new client listed.</simpara>
+</listitem>
+</orderedlist>
+<simpara>This concludes the bootstrap section of this guide. <xref linkend="_preparing.and.registering.clients.salt"/>
+ will go over registering Salt minions for use with  3.</simpara>
+</section>
+</section>
+<section xml:id="_preparing.and.registering.clients.salt">
+<title>Registering Salt Clients</title>
+<simpara>There are currently three methods for registering Salt minions.
+The following section describes the first method and uses a bootstrap repository.
+The second method is to create a bootstrap script using <literal>mgr-bootstrap</literal>.
+Bootstrapping Salt minions with <literal>mgr-bootstrap</literal> is performed in the same manner as bootstrapping traditional clients; for more information, see <xref linkend="_registering.clients.traditional"/>
+.
+The third method is performed from the  ; find this method located in <xref linkend="_ref.webui.systems.bootstrapping"/>
+.</simpara>
+<important>
+<title>Deprecation Warning</title>
+<simpara>The <literal>mgr-bootstrap --salt</literal> option will be deprecated as of SUSE Manager 3.1.
+To bootstrap a Salt minion call <literal>mgr-bootstrap</literal> from the command line as you would for a traditional system.</simpara>
+</important>
+<simpara>The following section assumes you have created a SUSE Manager tools repository.
+You can review creating a tools repository in <xref linkend="_create.tools.repository"/>
+.</simpara>
+<warning>
+<title>Ensure the Salt Master is Reachable During Bootstrap</title>
+<simpara>The Salt master and its proxy should always be reachable via both IP address and the FQDN.
+In the following rare scenario:
+<emphasis role="strong"><emphasis role="strong"></emphasis></emphasis> The Salt master (SUSE Manager) is in some DNS.
+<emphasis role="strong"><emphasis role="strong"></emphasis></emphasis> Your Minions are in a different subnet bound to an alternate DNS and the Salt master record is absent.
+<emphasis role="strong"><emphasis role="strong"></emphasis></emphasis> The Salt master cannot know that the minion is not utilizing the same DNS record. The the Salt master nevertheless sends the FQDN of itself to the minion expecting it to join.
+<emphasis role="strong"><emphasis role="strong"></emphasis></emphasis> The minion looks for a different DNS, one where the master record does not exist therefore bootstrap fails.</simpara>
+</warning>
+<simpara>Once you have fully synced a base channel from the  for clients to obtain software sources from, for example: <literal>SLES12-SP3-Pool_for_x86_64</literal> perform the following procedure to register a Salt minion.</simpara>
+<formalpara>
+<title>Procedure: Registering Salt Minions&#8230;&#8203;&#8230;&#8203; On your minion as  enter the following command:</title>
+<para>+</para>
+</formalpara>
+<screen># zypper ar http://FQDN.SUSE.Manager.com/pub/repositories/sle/12/3/bootstrap/ \
+   sles12-sp3</screen>
+<simpara>+</simpara>
+<note>
+<simpara>Do not use <literal>HTTPS</literal>.
+Use <literal>HTTP</literal> instead to avoid errors.</simpara>
+</note>
+<simpara>&#8230;&#8203;&#8230;&#8203; After adding the repository containing the necessary Salt packages execute:</simpara>
+<simpara>+</simpara>
+<screen># zypper in salt-minion</screen>
+<simpara>&#8230;&#8203;&#8230;&#8203; Modify the minion configuration file to point to the fully qualified domain name (<literal role="replaceable">FQDN</literal>) of the  server (master):</simpara>
+<simpara>+</simpara>
+<screen># vi /etc/salt/minion</screen>
+<simpara>+
+Find and change the line:</simpara>
+<simpara>+</simpara>
+<screen>master: salt</screen>
+<simpara>+
+to:</simpara>
+<simpara>+</simpara>
+<screen>master: FQDN.SUSE.Manager.com</screen>
+<simpara>&#8230;&#8203;&#8230;&#8203; Restart the Salt minion with:</simpara>
+<simpara>+</simpara>
+<screen># systemctl restart salt-minion</screen>
+<simpara>+
+or on non-systemd OS:</simpara>
+<simpara>+</simpara>
+<screen># rcsalt-minion restart</screen>
+<simpara>Your newly registered minion should now show up within the  under <menuchoice><guimenu>Salt</guimenu> <guimenuitem>Onboarding</guimenuitem></menuchoice>
+.
+Accept its key to begin management.
+:leveloffset: 0</simpara>
+</section>
+</chapter>
+<chapter xml:id="_salt.gs.guide.introduction">
+<title>Getting Started with Salt</title>
+<section xml:id="_salt.gs.guide.intro">
+<title>Introduction</title>
+<simpara>This chapter provides an introduction to using the new Salt features added in  3.
+This chapter assumes you have completed all former sections within the . You should have a running  server and at least one on-boarded Salt minion to complete the sections of this chapter.
+If you find yourself stuck at any point refer to the <emphasis><phrase role="ref">SaltStack Get
+    Started</phrase></emphasis>
+ tutorial located at <link xl:href="https://docs.saltstack.com/en/getstarted/fundamentals/index.html">https://docs.saltstack.com/en/getstarted/fundamentals/index.html</link>.</simpara>
+<tip>
+<title>Use More than One Minion</title>
+<simpara>Connecting two or more minions during your testing is considered best practice.
+This will allow you to target individual minions using Salt and experiment with the power of its targeting features.</simpara>
+</tip>
+<simpara>This guide does not attempt to cover all that Salt has to offer.
+This guide is a primer for using Salt with . For comprehensive Salt documentation, see <link xl:href="https://docs.saltstack.com/en/latest/contents.html">https://docs.saltstack.com/en/latest/contents.html</link>.</simpara>
+<simpara>The current version of Salt in  is <literal>2016.3.x</literal>.
+For additional covering the major differences between Salt version <literal>2015.11.x</literal> and <literal>2016.3.x</literal> review the following release notes: <link xl:href="https://docs.saltstack.com/en/latest/topics/releases/2015.8.0.htmlhttps://docs.saltstack.com/en/latest/topics/releases/2016.3.0.html">https://docs.saltstack.com/en/latest/topics/releases/2015.8.0.htmlhttps://docs.saltstack.com/en/latest/topics/releases/2016.3.0.html</link></simpara>
+</section>
+<section xml:id="_salt.gs.guide.testing.first.minion">
+<title>Understanding Salt Calls</title>
+<variablelist>
+<varlistentry>
+<term>Salt Calls</term>
+<listitem>
+<simpara>Salt calls are defined by three main properties:</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen># salt 'target' function [arguments]</screen>
+<variablelist>
+<varlistentry>
+<term>Target</term>
+<listitem>
+<simpara>Use the second property in a Salt call to define a target machine.
+Specify the minion or group of minions you would like to run a function on.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>General Targeting</term>
+<listitem>
+<simpara>List available grains on all minions:</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen># salt '*' grains.ls</screen>
+<simpara>+
+Ping a specific minion:</simpara>
+<simpara>+</simpara>
+<screen># salt 'web1.example.com' test.ping</screen>
+<variablelist>
+<varlistentry>
+<term>Glob Targeting</term>
+<listitem>
+<simpara>Ping all minions using a domain:</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen># salt '*example.com' test.ping</screen>
+<simpara>+
+Display the OS name of all minions with the label <literal>webserver</literal>:</simpara>
+<simpara>+</simpara>
+<screen># salt 'webserver*' grains.item oscodename</screen>
+<variablelist>
+<varlistentry>
+<term>List Targeting</term>
+<listitem>
+<screen># salt -L 'webserver.example.com,db.example.com' test.ping</screen>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Regular Expression Targeting</term>
+<listitem>
+<simpara>You may use PCRE-compliant regular expressions:</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen># salt -E '(?!web)' test.ping</screen>
+<variablelist>
+<varlistentry>
+<term>IP Address Targeting</term>
+<listitem>
+<simpara>List minion IP addresses:</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen># salt '*' network.ip_addrs</screen>
+<simpara>+
+Ping a specific minion IP address:</simpara>
+<simpara>+</simpara>
+<screen># salt -S '172.31.60.74' test.ping</screen>
+<simpara>+
+Ping all minions on a subnet:</simpara>
+<simpara>+</simpara>
+<screen># salt -S 172.31.0.0/16 test.ping</screen>
+<simpara>+</simpara>
+<tip>
+<title>Lookup a Subnet Using the <literal>ip</literal> Command</title>
+<simpara>You can use the <literal>ip</literal> command to find the subnet mask in the format of <literal>192.168.1.1/24</literal>:</simpara>
+<screen># ip -o -f inet addr show | awk '/scope global/ {print $4}'</screen>
+</tip>
+<variablelist>
+<varlistentry>
+<term>Function</term>
+<listitem>
+<simpara>Once you have specified a target, provide the function you would like to call.
+Functions also accept arguments.
+These are space-delimited.
+For example:</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen>salt '*' cmd.run 'echo "Hello: $FIRST_NAME"' env='{FIRST_NAME: "John"}'</screen>
+<variablelist>
+<varlistentry>
+<term>Locating Additional Minion Functions</term>
+<listitem>
+<simpara>Find more functions which can be called on minions by running:</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen>salt '*' sys.doc</screen>
+<simpara>+
+A full list of callable functions are located here: <link xl:href="https://docs.saltstack.com/en/2015.8/ref/modules/all/index.html">https://docs.saltstack.com/en/2015.8/ref/modules/all/index.html</link>
+Arguments::
+Provides the extra data needed by a function you are calling.
+The command <literal>pkg.install</literal> requires an argument specifying a package to install.
+has been selected for installation.
+For example:</simpara>
+<simpara>+</simpara>
+<screen># salt '*' pkg.install yast2</screen>
+</section>
+<section xml:id="_salt.gs.guide.term.overview">
+<title>Common Salt Terminology</title>
+<variablelist>
+<varlistentry>
+<term>Grains</term>
+<listitem>
+<simpara>Grains provide information about the hardware of a minion.
+For example, the operating system, IP addresses, network interfaces, memory, etc.
+When running a Salt command from keep in mind any modules and functions called are run locally from the system being called.
+Salt modules are stored on minions and master within the following directory:</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen>/usr/lib/python2.7/site-packages/salt/</screen>
+<simpara>+
+List all available grains with the <literal>grains.ls</literal> function:</simpara>
+<simpara>+</simpara>
+<screen># salt '*' grains.ls</screen>
+<simpara>+
+List collected grain system data by using the <literal>grains.items</literal> function:</simpara>
+<simpara>+</simpara>
+<screen># salt '*' grains.items</screen>
+<simpara>+
+For more information on grains, see <link xl:href="https://docs.saltstack.com/en/latest/topics/grains/">https://docs.saltstack.com/en/latest/topics/grains/</link>.</simpara>
+<variablelist>
+<varlistentry>
+<term>States</term>
+<listitem>
+<simpara>States are templates which place systems into a known configuration, for example which applications and services are installed and running on those systems.
+States are a way for you to describe what each of your systems should look like.
+Once written, states are applied to target systems automating the process of managing and maintaining a large numbers of systems into a known state.
+For more information on states, see <link xl:href="https://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html">https://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html</link>.</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<warning>
+<title>Upating Salt</title>
+<simpara>Do not update <phrase role="package">salt</phrase>
+ itself using Salt states.
+First update all other system packages using Salt states then update <phrase role="package">salt</phrase>
+ as a separate stand-alone step from the  .</simpara>
+</warning>
+<variablelist>
+<varlistentry>
+<term>Pillar</term>
+<listitem>
+<simpara>Pillars unlike grains are created on the master.
+Pillar files contain information about a minion or group of minions.
+Pillars allow you to send confidential information to a targeted minion or group of minions.
+Pillars are useful for sensitive data, configuration of minions, variables, and any arbitrary data which should be defined.
+For more information on pillars, see <link xl:href="https://docs.saltstack.com/en/latest/topics/tutorials/pillar.html">https://docs.saltstack.com/en/latest/topics/tutorials/pillar.html</link>.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Beacons</term>
+<listitem>
+<simpara>Beacons allow an admin to use the event system in Salt to monitor non-Salt processes.
+Minions may use beacons to hook into many types of system proceses for constant monitoring.
+Once a targeted monitored activity occurs an event is sent on the Salt event bus that may be used to trigger a reactor.</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<important>
+<title>Enabling Beacons</title>
+<simpara>To work with beacons on Salt minions the package python-pyinotify must be installed for SUSE systems.
+For RES systems install python-inotify.
+This package is not installed automatically during the salt minion package installation.</simpara>
+</important>
+<simpara>+</simpara>
+<note>
+<title>Peer Communication with salt-broker</title>
+<simpara>The salt-broker acts like a switch and not like a hub, therefore Peer communication will only work for minions behind the same broker/Proxy.
+For more information on Salt and peer communication see: <link xl:href="https://docs.saltstack.com/en/latest/ref/peer.html">https://docs.saltstack.com/en/latest/ref/peer.html</link></simpara>
+</note>
+</section>
+<section xml:id="_salt.gs.guide.useful.salt.commands">
+<title>Useful Salt Commands</title>
+<simpara>The following list provides several useful Salt commands.</simpara>
+<variablelist>
+<varlistentry>
+<term><literal>salt-run</literal></term>
+<listitem>
+<simpara>Print a list of all minions that are up:</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen># salt-run manage.up</screen>
+<simpara>+
+Print a list of all minions that are down:</simpara>
+<simpara>+</simpara>
+<screen># salt-run manage.down</screen>
+<simpara>+
+Print a list with the current status of all Salt minions:</simpara>
+<simpara>+</simpara>
+<screen># salt-run manage.status</screen>
+<simpara>+
+Check the version of Salt running on the master and active minions:</simpara>
+<simpara>+</simpara>
+<screen># salt-run manage.versions</screen>
+<variablelist>
+<varlistentry>
+<term><literal>salt-cp</literal></term>
+<listitem>
+<simpara>Copy a file to a minion or set of minions.</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen># salt-cp '*' foo.conf /root</screen>
+<simpara>+
+For more information, see <link xl:href="https://docs.saltstack.com/en/latest/ref/cli/salt-cp.html">https://docs.saltstack.com/en/latest/ref/cli/salt-cp.html</link>.</simpara>
+<variablelist>
+<varlistentry>
+<term>salt-key -l</term>
+<listitem>
+<simpara>List public keys:</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen># salt-key -l</screen>
+<variablelist>
+<varlistentry>
+<term>salt-key -A</term>
+<listitem>
+<simpara>Accept all pending keys:</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<screen># salt-key -A</screen>
+</section>
+<section xml:id="_salt.gs.guide.salt.file.locations">
+<title>Salt File Locations and Structure</title>
+<simpara>The following screen describes Salt file structures and their locations used by the server.
+These files are listed in <emphasis><phrase role="path">/etc/salt/master.d/susemanager.conf</phrase></emphasis>
+:</simpara>
+<screen># Configure different file roots
+
+file_roots:
+  base:
+    - /usr/share/susemanager/salt    #Should not be touched by a user
+    - /srv/susemanager/salt          #Should not be touched by a user
+    - /srv/salt                      #Your custom states go here
+
+# Configure different pillar roots
+
+pillar_roots:
+  base:
+    - /usr/share/susemanager/pillar  #Should not be touched by a user
+    - /srv/pillar                    #Custom pillars go here
+
+# Extension modules path
+
+extension_modules: /usr/share/susemanager/modules
+
+# Master top configuration
+
+master_tops:
+  mgr_master_tops: True</screen>
+<simpara>The following tips should be kept in mind when working with <emphasis><phrase role="path">/etc/salt/master.d/susemanager.conf</phrase></emphasis>
+.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Files listed are searched in the order they appear.</simpara>
+</listitem>
+<listitem>
+<simpara>The first file found is called.</simpara>
+</listitem>
+</itemizedlist>
+<section xml:id="_salt.gs.guide.salt.file.locations.file.roots">
+<title>file_roots</title>
+<simpara>as the Salt master reads its state data from three specific file root directories.</simpara>
+<variablelist>
+<varlistentry>
+<term><emphasis><phrase role="path">/usr/share/susemanager/salt</phrase></emphasis></term>
+<listitem>
+<simpara>This directory is created by  and its content generated by the <literal>/usr/share/susemanager/modules/tops/mgr_master_tops.py</literal> python module:</simpara>
+<simpara>It is shipped and updated together with  and includes certificate setup and common state logic that will be applied to packages and channels.</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<warning>
+<title>Non-editable Directory</title>
+<simpara>You should not edit or add custom Salt data to this directory.</simpara>
+</warning>
+<variablelist>
+<varlistentry>
+<term><emphasis><phrase role="path">/srv/susemanager/salt</phrase></emphasis></term>
+<listitem>
+<simpara>This directory is created by  and contains assigned channels and packages for minions, groups, and organizations.
+These files will be overwritten and regenerated.
+A good analogy for this directory would be the  database translated into Salt directives.</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<warning>
+<title>Non-editable Directory</title>
+<simpara>You should not edit or add custom Salt data to this directory.</simpara>
+</warning>
+<variablelist>
+<varlistentry>
+<term><emphasis><phrase role="path">/srv/salt</phrase></emphasis></term>
+<listitem>
+<simpara>The directory <emphasis><phrase role="path">/srv/salt</phrase></emphasis>
+is for your custom state data, salt modules etc.
+does not touch or do anything with this directory.
+However the state data placed here affects the Highstate of minions and is merged with the result generated by .</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<tip>
+<title>Editable Directory</title>
+<simpara>Place your custom Salt data here.</simpara>
+</tip>
+</section>
+<section xml:id="_salt.gs.guide.salt.file.locations.pillar.roots">
+<title>pillar_roots</title>
+<simpara>as the Salt master reads its pillar data from two specific pillar root directories.</simpara>
+<variablelist>
+<varlistentry>
+<term><emphasis><phrase role="path">/usr/share/susemanager/pillar</phrase></emphasis></term>
+<listitem>
+<simpara>This directory is generated by . It is shipped and updated together with .</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<warning>
+<title>Non-editable Directory</title>
+<simpara>You should not edit or add custom Salt data to this directory.</simpara>
+</warning>
+<variablelist>
+<varlistentry>
+<term><emphasis><phrase role="path">/srv/pillar</phrase></emphasis></term>
+<listitem>
+<simpara>by default does not touch or do anything with this directory.
+However the custom pillar data placed here is merged with the pillar result created by .</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<tip>
+<title>Editable Directory</title>
+<simpara>Place your custom Salt pillar data here.</simpara>
+</tip>
+</section>
+</section>
+<section xml:id="_install_the_suse_manager_locale_formula">
+<title>Install the SUSE Manager Locale Formula</title>
+<simpara>The following section provides guidance on installing and using SUSE provided Salt formulas.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure: Installing the Locale Formula</title>
+<listitem>
+<simpara>Install the locale formula with:</simpara>
+<screen>zypper install locale-formula</screen>
+<note>
+<simpara>This installs the package contents to <emphasis><phrase role="path">/usr/share/susemanager/formulas/{metadata,states}</phrase></emphasis></simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>After installing the RPM, log in to the  .</simpara>
+</listitem>
+<listitem>
+<simpara>Browse to the <guimenu>System Details</guimenu> page of any minion you would like to apply the formula to.</simpara>
+</listitem>
+<listitem>
+<simpara>On the <menuchoice><guimenu>System Details</guimenu> <guimenuitem>] page of the minion you will see a new menu:Formulas[</guimenuitem></menuchoice> tab. Select it to view a list of installed formulas.</simpara>
+</listitem>
+<listitem>
+<simpara>In the <menuchoice><guimenu>Formulas</guimenu> <guimenuitem>] listing select menu:Locale[</guimenuitem></menuchoice> and click <guimenu>Save</guimenu> .</simpara>
+</listitem>
+<listitem>
+<simpara>A new tab will appear next to the <menuchoice><guimenu>Formula</guimenu> <guimenuitem>] subtab. Select the new menu:Locale[</guimenuitem></menuchoice> tab.</simpara>
+</listitem>
+<listitem>
+<simpara>The <menuchoice><guimenu>Locale</guimenu> <guisubmenu>] tab contains options for setting the language</guisubmenu> <guisubmenu>keyboard layout</guisubmenu> <guisubmenu>timezone</guisubmenu> <guimenuitem>and whether hardware clock is set to UTC. Select the desired options and click menu:Save[</guimenuitem></menuchoice> .</simpara>
+</listitem>
+<listitem>
+<simpara>Run the following command to verify pillar settings. The output has been truncated.</simpara>
+<screen>salt '$your_minion' pillar.items</screen>
+<screen> ...
+   keyboard_and_language:
+       ----------
+       keyboard_layout:
+           English (US)
+       language:
+           English (US)
+   machine_password:
+       foobar
+   mgr_server:
+       manager_server
+   org_id:alt '$your_minion_here'
+       1
+   timezone:
+       ----------
+       hardware_clock_set_to_utc:
+           True
+       name:
+           CET
+    ...</screen>
+</listitem>
+<listitem>
+<simpara>Apply this state to your minion by applying the highstate from the command line with:</simpara>
+<screen>salt '$your_minion' state.highstate</screen>
+<note>
+<simpara>You can also apply the highstate from the previous formula tab from the  by clicking <guimenu>Apply Highstate</guimenu>
+.</simpara>
+</note>
+</listitem>
+</orderedlist>
+</section>
+</chapter>
+</book>

@@ -1,0 +1,459 @@
+[[_quickstart.chapt.overview.requirements]]
+= What is Covered?
+:doctype: book
+:sectnums:
+:toc: left
+:icons: font
+:experimental:
+:sourcedir: .
+
+
+Get started with  3 by setting up a KVM learning environment.
+This quick-start guide will provide you with introductory guidance on setting up server.
+You will learn the basics of managing both traditional clients and Salt clients.
+This guide is intended for system administrators. 
+
+[[_quickstart.sect.introduction]]
+== Introducing 
+
+
+lets you efficiently manage large sets of Linux systems and keep them up to date.
+It provides automated and cost-effective software management, asset management, and system provisioning.
+provides a best in class solution for organizations requiring absolute control of maintenance and package deployment on their servers.
+It allows customers the highest level of flexibility and power ensuring their servers remain secure while facilitating and advancing an organizations system life-cycle requirements. 
+
+.Salt
+The inclusion of [path]_Salt_
+ in  3 provides powerful event-driven configuration and management capabilities for fine grained control of any modern infrastructure. 
+
+.Salt-master
+takes a commanding role as a Salt-master capable of orchestrating thousands of Salt-minions ( Clients) via remote execution. 
+
+.Distribution Management
+is also fully compatible with Red Hat Satellite Server and offers seamless management of both  and  client systems. 
+
+[[_quickstart.sect.bird.eye.view]]
+== Overview
+
+
+may be integrated within your network infrastructure in multiple ways.
+In this guide you will perform the following steps for an initial test setup. 
+
+* Install SLES12 and SUSE Manager as an extension 
+* Register SUSE Manager server with SCC (SUSE Customer Center) 
+* Synchronize a repository channel for use with both traditional clients and salt-minions 
+* Create an authentication key to act as an ID for the synced repository channel 
+* Add the new authentication key to a bootstrap template script and connect a traditional client 
+* Register a salt-minion with SUSE Manager (salt-master) and assign it a channel with an authentication key 
+
+
+[[_quickstart.sect.prerequisites.install]]
+== Prerequisites for Installation
+
+
+This guide requires that you have created an account with SCC (). During installation of both  12 and  ,  credentials will be requested and you must enter them to receive the latest packages and updates.
+The following procedure will guide you through obtaining your SCC [path]_Organizational Credentials_
+. 
+
+.Procedure: Obtaining Your SCC Organization Credentials
+. Open a browser and direct it to https://scc.suse.com/login. 
+. If you have not done so, create an account now. 
+. Log in to your new SCC account. 
+. Under the [path]_Management tools_ widget select [path]_Manage Users_ . 
+. Click the [path]_Organization Credentials_ tab. 
+. Keep this information handy during  3 setup. 
+
+
+== Obtaining Installation Media
+
+
+After logging into your SCC account, you can find the installation images provided at the following addresses.
+Select one and continue reading: 
+
+.Just Enough Operating System (JeOS) vs. Full Media Image
+[NOTE]
+====
+The SLES 12 JeOS image provides the quickest route for setup of a test environment.
+The JeOS image total size is about 290 MB.
+The alternative would be the 3 GB  12 DVD image.
+Both installation media are appropriate, but depend upon available bandwidth or your application needs.
+Both methods of installation will be covered in this guide. 
+====
+** Just Enough Operating System (JeOS) 290 MB https://download.suse.com (and search for ``jeos``) or https://www.suse.com/products/server/jeos/
+** SLES 12 DVD image 3 GB https://www.suse.com/products/server/download/
+
+
+[[_quickstart.sect.software.requirements]]
+== Hardware Requirements
+
+
+Review the following table for  hardware and software requirements.
+For installation on , see <<_art.suma.install.zsystems>>
+. 
+
+[cols="1,1", options="header"]
+|===
+| 
+       
+        Hardware
+       
+      
+| 
+       
+        Recommended
+       
+      
+
+
+|
+
+CPU 
+|
+
+Multi-core 64-bit CPU (x86_64, ppc64le) 
+
+|
+
+RAM 
+|
+
+Minimum 4GB+ for test server 
+
+Minimum 16GB+ for base installation 
+
+Minimum 32GB+ for a production server 
+
+|
+
+Free Disk Space 
+|
+
+Minimum 100GB for root partition 
+
+_For the purposes of this guide the default JeOS root
+        partition size of 24 GB will be sufficient_
+
+Minimum 50GB for [path]_/var/lib/pgsql_
+
+Minimum 50GB per SUSE product + 200 GB per Red Hat product [path]_/var/spacewalk_
+|===
+
+== Base Host OS
+
+
+SUSE Manager is based on the following host OS.
+
+.Version Information
+[NOTE]
+====
+ 3.1 was originally released as a SLES 12 SP2 extension.
+With the next maintenance update (2017),  3.1 will be based on SLES 12 SP3 and it will support SLE 12 SP3 clients officially.
+In the following sections and chapters, it is highly recommended to use SLE 12 SP3 instead of SP2. 
+====
+
+[cols="1,1", options="header"]
+|===
+| 
+       Base OS
+     
+| 
+       SUSE Manager Version
+     
+
+
+|
+
+SLES 12 SP3
+|
+
+3.0, 3.1
+|===
+
+[[_mgr.supported.client.systems]]
+== Supported Client Systems
+
+
+Clients with the following operating systems are supported for registration with . If you plan on using the new Salt features, ensure your clients are supported. 
+
+.Supported Versions and SP Levels
+[NOTE]
+====
+Client operating system versions and SP levels must be under general support (normal or LTSS) to be supported with .  For details, see https://www.suse.com/lifecycle. 
+====
+
+[cols="1,1,1,1", options="header"]
+|===
+| 
+       
+        Operating Systems
+       
+      
+| 
+       
+        Architecture
+       
+      
+| 
+       
+        Traditional Clients
+       
+      
+| 
+       
+        Salt Clients
+       
+      
+
+
+|
+
+ 11 SP4 LTSS 
+|
+
+, _64, , IBM ,  
+|
+
+Supported 
+|
+
+Supported 
+
+|
+
+ 12 SP1, SP2, SP3 
+|
+
+_64, IBM  (),  
+|
+
+Supported 
+|
+
+Supported 
+
+|
+
+ 5 
+|
+
+, _64 
+|
+
+Supported 
+|
+
+Unsupported 
+
+|
+
+ 6 
+|
+
+, _64 
+|
+
+Supported 
+|
+
+Supported 
+
+|
+
+ 7 
+|
+
+, _64 
+|
+
+Supported 
+|
+
+Supported 
+
+|
+
+Novell Open Enterprise Server 11, SP1, SP2, SP3 LTSS 
+|
+
+, _64 
+|
+
+Supported 
+|
+
+Supported
+
+|
+
+Open Enterprise Server 2015, 2015 SP1, 2018 
+|
+
+, _64 
+|
+
+Supported 
+|
+
+Supported
+|===
+
+[[_mgr.additional.requirements]]
+== Additional Requirements
+
+
+To successfully complete this guide some network requirements must be met.
+The following section will walk you through these requirements. 
+
+.Fully Qualified Domain Name (FQDN):
+The  server must resolve its FQDN correctly or cookies will not work properly on the . For more information on FQDN, see: 
+** https://www.suse.com/documentation/sles-12/book_sle_admin/data/sec_basicnet_yast.html#sec_basicnet_yast_change_host
+
+
+.Hostname and IP Address:
+To ensure that 's domain name can be resolved by its clients, both server and client machines must be connected to a working Domain Name System (DNS) server.
+This guide assumes the required infrastructure exists within your environment.
+For more information on setting up a (DNS) server, see: 
+
+.Using a Proxy When Installing from  Media
+If you are on an internal network and do not have access to , you can setup and use a proxy during a  installation.
+For more information on configuring a proxy for access to  during a  installation see:https://www.suse.com/documentation/sled-12/singlehtml/book_sle_deployment/book_sle_deployment.html#sec.i.yast2.start.parameters.proxy
+** https://www.suse.com/documentation/sles-12/book_sle_admin/data/cha_dns.html
+
+
+.Naming Your Server
+[IMPORTANT]
+====
+The hostname of  must not contain uppercase letters as this may cause [path]_jabberd_
+ to fail.
+Choose the hostname of your server carefully.
+Although changing the server name is possible, it is a complex process and unsupported. 
+====
+
+
+For a more complete overview on  requirements not covered in this guide, see <<_mgr.conceptual.overview>>
+. 
+
+== Firewall Rules
+
+
+In a production environment  server and its clients should always utilize firewall rules.
+The following table provides an overview of required ports for use by  3.1. 
+
+Traditional client systems connect to  via port 443. In addition, enabling push actions from  to client systems, requires inbound connections on port 5222.
+If  will also push to a proxy, you must allow inbound connections on port 5269. 
+
+.Required Ports on  Server
+[cols="1,1,1", options="header"]
+|===
+| 
+       
+        Port
+       
+      
+| 
+       
+        Direction
+       
+      
+| 
+       
+        Reason
+       
+      
+
+|
+
+67 
+|
+
+Inbound 
+|
+
+Required when configured as a DHCP server for systems requesting IP addresses. 
+
+|
+
+69 
+|
+
+Inbound 
+|
+
+Used when configured as a PXE server and allows installation and re-installation of PXE-boot enabled systems. 
+
+|
+
+80 
+|
+
+Outbound 
+|
+
+Used to contact . 
+
+|
+
+443 
+|
+
+Inbound 
+|
+
+All , traditional client, and proxy server requests and uses this port for  inbound traffic. 
+
+|
+
+4505 
+|
+
+Inbound
+|
+
+Required by the Salt-master to accept communication requests via TCP from minions. 
+
+|
+
+4506 
+|
+
+Inbound
+|
+
+Required by the Salt-master to accept communication requests via TCP from minions. 
+
+|
+
+5222 
+|
+
+Inbound 
+|
+
+When you wish to push actions to clients this port is required by the [path]_osad_
+ daemon running on the client systems. 
+
+|
+
+5269 
+|
+
+Inbound/Outbound 
+|
+
+Needed if you push actions to or via a . 
+
+|
+
+
+|
+
+Outbound 
+|
+
+Squid HTTP proxy for outgoing connections.
+It could be any port you configure. 
+|===
+
+
+For more information, see <<_advanced.topics.app.ports.server>>
+. 
